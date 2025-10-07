@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ======== Tema Dark Moderno ======== */
+html, body {
+  @apply bg-background text-textPrimary font-sans;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+button {
+  @apply bg-accent text-white px-4 py-2 rounded-lg shadow-soft hover:bg-accentHover transition-all;
+}
+
+input, textarea {
+  @apply bg-surface border border-borderColor text-textPrimary rounded-lg px-3 py-2 w-full focus:ring-2 focus:ring-accent outline-none;
+}
+
+.card {
+  @apply bg-surface p-6 rounded-xl shadow-soft border border-borderColor;
+}
+
+a {
+  @apply text-accent hover:text-accentHover transition-colors;
+}
+.prose {
+  @apply text-textPrimary leading-relaxed;
+}
+
+.prose a {
+  @apply text-accent hover:text-accentHover;
+}
+
+.prose h1, .prose h2, .prose h3 {
+  @apply text-textPrimary font-semibold;
+}
