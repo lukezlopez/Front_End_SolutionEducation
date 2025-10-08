@@ -28,7 +28,4 @@ jobs:
         run: npm run build
 
       - name: Deploy
-        run: |
-          echo "Aqui entra seu comando de deploy"
-          # Por exemplo, se usar Vercel:
-          # npm i -g vercel && vercel --prod
+        run:
