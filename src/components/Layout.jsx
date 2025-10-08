@@ -22,8 +22,16 @@ export default function Layout() {
 
                     <nav className="flex items-center gap-4">
                         <Link className="text-sm hover:text-accent" to="/">Home</Link>
-                        <button className="text-sm hover:text-accent" onClick={() => navigate("/admin")}>Admin</button>
-                        <button className="text-sm hover:text-accent" onClick={() => navigate("/create")}>Novo</button>
+
+                        {/* Exibe o botão Admin apenas se o usuário for professor */}
+                        {role === "professor" && (
+                            <button
+                                className="text-sm hover:text-accent"
+                                onClick={() => navigate("/admin")}
+                            >
+                                Admin
+                            </button>
+                        )}
 
                         <button
                             onClick={toggleTheme}
@@ -34,13 +42,22 @@ export default function Layout() {
                         </button>
 
                         <div className="flex items-center gap-3">
-                            <div className="text-sm text-textSecondary">Usuário: <span className="font-semibold ml-1">{role ?? "convidado"}</span></div>
+                            <div className="text-sm text-textSecondary">
+                                Usuário: <span className="font-semibold ml-1">{role ?? "convidado"}</span>
+                            </div>
+
                             {role ? (
-                                <button onClick={logout} className="ml-2 text-sm text-textSecondary hover:text-accent flex items-center gap-2">
+                                <button
+                                    onClick={logout}
+                                    className="ml-2 text-sm text-textSecondary hover:text-accent flex items-center gap-2"
+                                >
                                     <LogOut size={16} /> Sair
                                 </button>
                             ) : (
-                                <Link to="/login" className="ml-2 text-sm text-textSecondary hover:text-accent flex items-center gap-2">
+                                <Link
+                                    to="/login"
+                                    className="ml-2 text-sm text-textSecondary hover:text-accent flex items-center gap-2"
+                                >
                                     <User size={16} /> Entrar
                                 </Link>
                             )}
